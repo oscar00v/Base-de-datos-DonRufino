@@ -42,5 +42,27 @@ router.get('/api/v1/productos/:id', (req, res) => {
     // const producto = productos.find(producto => producto.id === parseInt(productosID))
     // res.json(productos)
 })
+//query
+//una query es similar a un param, pero en lugar de ser parte de la ruta, se envía como un parámetro en la URL (?). Sobre todo cuando ocupamos mandar más de un dato. Es común usarlas para filtrar información.
+//querys: /api/v1/productos?precio=15&nombre=Coca Cola
+
+router.get('/api/v1/productos', (req, res) => {
+    console.log(req.query)
+    const {precio, nombre} = req.query
+
+    const filteredProducts = productos.filter(producto => {
+        if(precio && nombre){
+            return producto.precio === parseInt(precio) && producto.nombre === nombre
+        }
+        if(precio){
+            return producto.precio === parseInt(precio)
+        }
+        if(nombre){
+            return producto.nombre === nombre
+        }
+        return producto
+    })
+    res.json(productos)
+})
 
 module.exports = router
