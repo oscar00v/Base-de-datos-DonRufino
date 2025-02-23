@@ -1,7 +1,6 @@
 // #1 Llamar a la biblioteca express
 const express = require('express')
-
-const petsRoutes = require('./api/v1/pets')
+const router = require('./api/v1/productos')
 
 // #2a Crear una aplicación o instancia de express
 const app = express()
@@ -12,10 +11,10 @@ app.use(express.json())
 
 // #3 Definir rutas
 app.get('/', (req, res) => {
-  res.send('Hello DevF G36!!!')
+  res.send('hello world╰(*°▽°*)╯')
 })
 
-app.use(petsRoutes) // Le digo a express que use las rutas de pets
+app.use(router) // Le digo a express que use las rutas
 
 // #4 Levantar el servidor
 app.listen(port, () => {
