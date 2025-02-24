@@ -1,7 +1,7 @@
 // #1 Llamar a la biblioteca express
 const express = require('express')
-const router = require('./api/v1/productos')
-
+const router = require('./api/v2/routes')
+const db = require('./db.js');
 // #2a Crear una aplicación o instancia de express
 const app = express()
 const port = process.env.PORT || 3000
