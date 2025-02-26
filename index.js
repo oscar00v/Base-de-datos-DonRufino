@@ -1,5 +1,8 @@
 // #1 Llamar a la biblioteca express
 const express = require('express')
+
+const ProductRoutes = require('./routes/ProductRoutes.js')
+
 const router = require('./api/v2/routes')
 const db = require('./db.js');
 // #2a Crear una aplicación o instancia de express
@@ -14,8 +17,8 @@ app.get('/', (req, res) => {
   res.send('hello world╰(*°▽°*)╯')
 })
 
-app.use(router) // Le digo a express que use las rutas
-
+// app.use(router) // Le digo a express que use las rutas
+app.use(ProductRoutes)
 // #4 Levantar el servidor
 app.listen(port, () => {
   console.log(`😁App listening on port ${port} 🚀`)
